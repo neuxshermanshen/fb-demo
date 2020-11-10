@@ -7,6 +7,11 @@ function loadPage(p) {
 window.onload = function () {
   const totalPages = 40;
   const baseUrl = location.origin + location.pathname;
+
+  const url = window.location.href;
+  const index = url.indexOf('?');
+  const page = index > -1 ? url.substr(index + 1) : 1;
+
   const btnsContainer = document.getElementById('btns');
   for (let i = 1; i <= totalPages; i++) {
     const btn = document.createElement('button');
@@ -15,11 +20,11 @@ window.onload = function () {
     btn.onclick = function () {
       location.replace(uri);
     }
+    if (`${i}` == `${page}`) {
+      btn.style.background = 'yellow';
+    }
     btnsContainer.appendChild(btn);
   }
 
-  const url = window.location.href;
-  const index = url.indexOf('?');
-  let page = index > -1 ? url.substr(index + 1) : 1;
   loadPage(page);
 }
