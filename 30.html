@@ -1,0 +1,21 @@
+<h1>Recursion : 遞迴</h1>
+<ul>
+  <li>練習(二) : 找到上面第一個父層的 li</li>
+  <li id="1">
+    <div>
+      <ul>
+        <li id="2">
+          <div>
+            <a id="target">目標</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </li>
+</ul>
+<script src="./30.js"></script>
+<script>
+  const target = document.getElementById("target");
+  const nearestLi = findNearestLi(target);
+  console.warn('nearestLi = ', nearestLi);
+</script>
